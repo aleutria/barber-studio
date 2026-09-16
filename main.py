@@ -4,11 +4,14 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
+import database
+import models
 from paths import STATIC_DIR
 from routers import bloqueos, disponibilidad, estadisticas, paginas, reservas
 
-app = FastAPI()
+models.Base.metadata.create_all(bind=database.engine)
 
+app = FastAPI()
 
 origenes_por_defecto = "http://127.0.0.1:8000,http://localhost:8000"
 allowed_origins = os.getenv("ALLOWED_ORIGINS", origenes_por_defecto).split(",")
