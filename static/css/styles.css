@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700&display=swap');
 
-/* ---------- Tokens ---------- */
 :root {
   --ink: #14181a;
   --ink-soft: #232a2e;
@@ -17,6 +16,7 @@
   --text-on-paper: #14181a;
   --text-on-ink: #f1e9d6;
   --text-muted: #6f6a5c;
+  --text-muted-on-ink: #b9b3a0;
 
   --font-display: 'Anton', 'Arial Narrow', sans-serif;
   --font-body: 'Work Sans', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -30,7 +30,6 @@
   --gutter: 20px;
 }
 
-/* ---------- Reset ---------- */
 * {
   margin: 0;
   padding: 0;
@@ -43,8 +42,8 @@ html {
 
 body {
   font-family: var(--font-body);
-  background: var(--paper);
-  color: var(--text-on-paper);
+  background: var(--ink);
+  color: var(--text-on-ink);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
@@ -108,12 +107,13 @@ a, button, input[type="checkbox"] {
   }
 
   .service-item:hover {
-    background: var(--ink);
+    background: var(--coral);
+    border-color: var(--coral);
     transform: translateY(-2px);
   }
 
   .service-item:hover .service-name {
-    color: var(--paper);
+    color: var(--ink);
   }
 
   .gallery-btn:hover {
@@ -146,7 +146,6 @@ a, button, input[type="checkbox"] {
   }
 }
 
-/* ---------- Header ---------- */
 .header {
   position: sticky;
   top: 0;
@@ -223,7 +222,6 @@ a, button, input[type="checkbox"] {
   transform: translateY(-6px) rotate(-45deg);
 }
 
-/* ---------- Menú móvil (bottom sheet) ---------- */
 .header__nav {
   position: fixed;
   left: 0;
@@ -310,7 +308,6 @@ a, button, input[type="checkbox"] {
   border: 1px solid rgba(89, 183, 172, 0.4);
 }
 
-/* Tablet / escritorio */
 @media (min-width: 781px) {
   .header {
     padding: 14px 32px;
@@ -371,7 +368,6 @@ a, button, input[type="checkbox"] {
   }
 }
 
-/* ---------- Hero ---------- */
 .hero {
   position: relative;
   min-height: 100svh;
@@ -504,11 +500,10 @@ a, button, input[type="checkbox"] {
   }
 }
 
-/* ---------- Section title (shared) ---------- */
 .section-title {
   font-family: var(--font-display);
   font-size: clamp(1.9rem, 8vw, 3rem);
-  color: var(--text-on-paper);
+  color: var(--text-on-ink);
   position: relative;
   display: inline-block;
   padding-bottom: 12px;
@@ -525,7 +520,6 @@ a, button, input[type="checkbox"] {
   background: var(--teal);
 }
 
-/* ---------- Gallery / Services section ---------- */
 .gallery-section {
   max-width: var(--container);
   margin: 0 auto;
@@ -547,10 +541,10 @@ a, button, input[type="checkbox"] {
 }
 
 .service-item {
-  border: 2px solid var(--ink);
+  border: 2px solid var(--paper-soft);
   border-radius: 999px;
   padding: 10px 18px;
-  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.15s ease, border-color 0.2s ease;
 }
 
 .service-name {
@@ -590,7 +584,7 @@ a, button, input[type="checkbox"] {
   width: 230px;
   aspect-ratio: 3 / 4;
   scroll-snap-align: center;
-  border: 3px solid var(--ink);
+  border: 3px solid var(--paper-soft);
   border-radius: var(--radius-sm);
   overflow: hidden;
   background: var(--ink-soft);
@@ -666,7 +660,6 @@ a, button, input[type="checkbox"] {
   }
 }
 
-/* ---------- Booking form section ---------- */
 .form-section {
   background: var(--ink);
   padding: 60px var(--gutter);
@@ -811,7 +804,6 @@ a, button, input[type="checkbox"] {
   color: var(--coral-dark);
 }
 
-/* Modal */
 .modal {
   display: none;
   position: fixed;
@@ -830,6 +822,7 @@ a, button, input[type="checkbox"] {
   max-height: 80vh;
   overflow-y: auto;
   background: var(--paper);
+  color: var(--text-on-paper);
   border: 2px solid var(--ink);
   border-radius: var(--radius-md);
   box-shadow: var(--hard-shadow);
@@ -869,7 +862,6 @@ a, button, input[type="checkbox"] {
   }
 }
 
-/* ---------- Location section ---------- */
 .location-section {
   max-width: var(--container);
   margin: 0 auto;
@@ -878,17 +870,17 @@ a, button, input[type="checkbox"] {
 
 .location-text {
   font-size: 0.95rem;
-  color: var(--text-muted);
+  color: var(--text-muted-on-ink);
   max-width: 60ch;
   margin-bottom: 24px;
 }
 
 .map-card {
   position: relative;
-  border: 2px solid var(--ink);
+  border: 2px solid var(--paper-soft);
   border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: var(--hard-shadow);
+  box-shadow: 6px 6px 0 var(--coral);
 }
 
 .map-iframe-wrapper {
@@ -954,7 +946,6 @@ a, button, input[type="checkbox"] {
   }
 }
 
-/* ---------- Footer ---------- */
 .footer-nesker {
   background: var(--ink);
   color: var(--text-on-ink);
@@ -1016,7 +1007,6 @@ a, button, input[type="checkbox"] {
   }
 }
 
-/* ---------- Escritorio grande ---------- */
 @media (min-width: 1024px) {
   :root {
     --gutter: 32px;
