@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Citas - Nesker Barber</title>
+    <link rel="stylesheet" href="/static/css/admin.css">
+</head>
+<body>
+
+    <!-- ========================================== -->
+    <!-- PANTALLA DE LOGIN (Visible por defecto)      -->
+    <!-- ========================================== -->
+    <div id="login-container" class="login-wrapper">
+        <div class="login-card">
+            <h2>🔐 ADMINISTRACIÓN</h2>
+            <form id="form-login">
+                <div class="form__input-container">
+                    <label for="password-admin">Contraseña</label>
+                    <input type="password" id="password-admin" placeholder="Introduce la clave" required>
+                </div>
+                <button type="submit" class="submit-button">Acceder</button>
+                <div id="login-error" style="display: none;">
+                    ❌ Contraseña incorrecta
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- PANEL DE CONTROL (Oculto hasta hacer login)  -->
+    <!-- ========================================== -->
+    <div id="admin-panel" style="display: none;">
+        <div class="table-container">
+            <h1>✂️--- CITAS ---✂️</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Teléfono</th>
+                        <th>Fecha Hora</th>
+                        <th>Borrar</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-citas">
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECCIÓN PARA GESTIONAR DÍAS BLOQUEADOS -->
+        <div class="panel-bloqueos">
+            <h3>📅 Gestión de Días Bloqueados</h3>
+            <p>Bloquea un día concreto (vacaciones, baja, festivo...) para que no se pueda reservar. Para bloquear varios días, repite el proceso uno a uno.</p>
+
+            <form id="form-bloqueo" class="form-bloqueo-grid">
+                <div class="campo-bloqueo">
+                    <label for="fecha-bloqueo">Día a bloquear:</label>
+                    <input type="date" id="fecha-bloqueo" required>
+                </div>
+                <div class="campo-bloqueo">
+                    <label for="motivo-bloqueo">Motivo:</label>
+                    <input type="text" id="motivo-bloqueo" value="Vacaciones" placeholder="Ej: Vacaciones, Baja...">
+                </div>
+                <div>
+                    <button type="submit" class="btn-bloquear">
+                        🚫 Bloquear Día
+                    </button>
+                </div>
+            </form>
+
+            <h4 class="titulo-lista-bloqueos">Días bloqueados:</h4>
+            <ul id="lista-bloqueos">
+            </ul>
+        </div>
+
+        <!-- SECCIÓN DE ESTADÍSTICAS MENSUALES -->
+        <div class="panel-bloqueos panel-estadisticas">
+            <h3>📊 Histórico Mensual</h3>
+            <p>Citas atendidas por mes. Los meses ya cerrados se archivan aquí automáticamente y se eliminan de la tabla de citas activas.</p>
+
+            <ul id="lista-estadisticas">
+            </ul>
+        </div>
+    </div>
+
+    <script src="/static/js/admin.js"></script>
+</body>
+</html>
