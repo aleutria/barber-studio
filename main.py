@@ -1,3 +1,5 @@
+from fastapi.responses import FileResponse
+
 import os
 
 from fastapi import FastAPI
@@ -32,8 +34,12 @@ app.include_router(bloqueos.router)
 app.include_router(disponibilidad.router)
 app.include_router(estadisticas.router)
 
-
 if __name__ == "__main__":
     import uvicorn
 
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=False)
+
+
+@app.get("/favicon.ico", include_in_schema=False)
+def favicon():
+    return FileResponse("static/images/favicon.ico")
